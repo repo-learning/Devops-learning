@@ -1,11 +1,11 @@
 # Devops-learning
-Devops learning
 
-What is Devops?
+
+## What is Devops?
 
 Devops ia aculture. Its a process of improving the application delivery by ensuring automation, quality, continuous monitoring and continuous testing. Automate and deliver the applciation on time.
 
-Why Devops?
+## Why Devops?
 
 Before Devops, here is the process to deliver an application to the customer 
   1.Developers work on the code and push to a central repository. After passing initial testing it will be pushed to a server.
