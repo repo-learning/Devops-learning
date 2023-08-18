@@ -1,0 +1,36 @@
+Linux commands
+Shell takes the commands and sends to Kernel. Kernel sits between hardward and OS. Depending on the command using, we need to choose the shell.
+Ex: Bash, Fish, Tcsh, Z shell, KornShell
+
+/ is the root folder
+opt, home, tmp, usr, etc, root, mnt,var are examples of childeren
+
+mkdir dir1 - To create a directory
+touch f1 - To create a file
+ls - to list the files and directories
+date - to show the date of system
+cal - calendar
+uptime - How long system is up and running
+pwd - present working directory
+whoami - shows the logged in user
+sudo su - root
+rm f4.doc - remove file
+cd - change directory
+mkdir -p /dir1/dir2/dir3 - if any parent is mising, create them too. This command fails without -p if parent is not existing 
+rmdir /dir1 - remove empty directory
+rm -r /dir1 - recursive delete, asks permission to delete children 
+rm -r -f /dir1 - delete parent and children with no asking permission
+touch ../f5 - create f5 in parent directory, .. is go back one level
+useradd kk - add new user
+passwd username - to set a password, only super user can create user and passwords. All users avaialble in /etc/passwd. All passwords in /etc/shadow
+groupadd name - create a group
+usermod -a -G groupname username - add user to the group. -a is to append to the existing groups otherwise overrides all the existing groups user is part of
+id ar - shows he list of groups user is part of
+chgrp groupname filename/dirname - change the groupname on a file. by default username and group name are same. command run by root user
+read permission - 4, write -2, execute -1
+chmod 754 filename - 7 is for owner(4+2+1), 5 is for group, 4 is for others. Only owner can run this command
+usermod -g username - to change the primary group of the user. Any file created by this user is under this group by default
+umask 222 - to change the default permission for all the files created. it will be 666-222 because linux default for a file is 666, for directory default is 777
+chown user - change ownership
+whereis commandname - shows the absolute path of the command script file
+ps -ef - processes currently in real memory
