@@ -34,3 +34,24 @@ umask 222 - to change the default permission for all the files created. it will 
 chown user - change ownership
 whereis commandname - shows the absolute path of the command script file
 ps -ef - processes currently in real memory
+kill process_id - To kill a running process
+systemctl stop sshd - to stop a service running. Service is a continuous running process Ex: ssh - port 22, http - port 80 
+more
+head -n 99 filename - top 99 lines
+tail -n 99 filename - bottom 99 lines
+systemctl start httpd
+systemctl enable servicename - recommended way to start the service with the server start or reboot
+chkconfig sshd on - to start the service with the server start or reboot, same as systemctl enable
+ifconfig
+hostname -i - get the private ip
+hostname -f - complete dns name
+curl ifconfig.me - to get the public ip
+telnet publicip 80 - to check why my public ip is not accessible
+netstat -tupln - to see the service listening port number
+netstat -plant
+etc/httpd/conf/httpd.conf - you can define the port to run http
+ps aux - to see the process state
+curl - if you want to browse something in the terminal
+
+All the services and deamons that are manageable by systemctl command are available in /usr/lib/systemd/system
+For Ex: sshd service script is in /usr/lib/systemd/system/sshd.service file 
