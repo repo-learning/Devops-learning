@@ -1,0 +1,13 @@
+---   #start with ---to indiacate yaml file 
+    - name: Install and Start nginx    # - is used for list
+      hosts: all
+      become: root
+      tasks:
+        - name: Install nginx
+          apt:             # apt module can be used or shell: apt install nginx is used. both are same. To keep it generic to all Linux distributions use apt module by Ansible
+            name: nginx
+            state: present
+        - name: start nginx
+           service:
+            name: nginx
+            state: started
