@@ -1,0 +1,57 @@
+Before devops, System administrators create all the servers on premises.
+If there are any upgrades, security patches, installations required on the servers, admins were doing all these manually or automating using shell scripting.
+Even shell scripting may not work same on the serves depending on the distribution(Ubuntu, Centos, Alpine).
+To address this problem, configuration management came into picture. To manage number of servers on premise or on cloud, configuration managemnt tools are used.Ex: Chef, Puppet, Ansible, Salt
+
+Why Ansible over other tools?
+
+Puppet VS Ansible
+  1. Puppet is a pull based and Ansible is a push based model. That means if we need to configure 20 Ec2 instances on AWS, with Ansible , playbooks can be writtena at one place and push to 20 instances at once.
+  2. Ansible is agent less. Puppet is Master-slave architecture. That means with Puppet one system is Master and others need to be configured as slave. That means some configuration is needed on all the servers. 
+  With Ansible, just the lsit of the servers to be configured in the inventory file. No other configuration is needed. With this approach, its very easy to maintain inventory even the servers are scled up or down.
+  3. With Puppet, configuration files needs to be in Puppet language, whereas Ansible uses YAML files
+  4. You can write own Ansible modules and can be shared using Ansible galaxy
+  5. Debugging, Performance, Windows support can be improved in Ansible
+
+To write Ansible playbooks, install Ansible first. Use package manager
+    sudo apt update
+    sudo apt install ansible
+    ansible --version
+For our example, we need atleast 2 servers, 1 server with Ansible installed and another to configure using the Ansible server. As long as server1 can communicate to server2 without password authentication, it can configure.
+To setup password less authentication: If both servers are ec2 and in same vpc , we can use ssh-copy-id Privateipof-targetserver
+One more way,
+  1. On server1, run command ssh-keygen. Generates public and private keys. Usually stores in /home/ubuntu/.ssh
+  2. On server2, run command ssh-keygen
+  3. Copy public key from server1, /home/ubuntu/.ssh/id_rsa.pub
+  4. On server2 edit /home/ubuntu/.ssh/authorized_keys, paste server1 public key here
+We can connect from server1 to server2 without any password
+
+We dont have to write playbooks all the times. We can run adhoc commands for simple tasks.
+Create inventory file with the target server ip iddresses
+To run adhoc commands 
+    ansible -i inventory all -m "shell" -a "touch devops" - Creates a file named devops is created on all the servers listed in inventory file, -m is module, -a run command
+    ansible -i inventory all -m "shell" -a "nproc"
+    ansible -i inventory all -m "shell" -a "df"
+Ip addresses in inventory file can be grouped 
+    [webservers]
+    xx.xx.xx.xx
+    [dbservers]
+    xx.xx.x.xx
+To run a command only on dbservers
+    ansible -i inventory dbservers -m "shell" -a "df"
+
+How to write a playbook? Scenario: Install and start nginx
+    ---   #start with ---to indiacate yaml file 
+    - name: Install and Start nginx    # - is used for list
+      hosts: all
+      become: root
+      tasks:
+        - name: Install nginx
+          apt:             # apt module can be used or shell: apt install nginx is used. both are same. To keep it generic to all Linux distributions use apt module by Ansible
+            name: nginx
+            state: present
+        - name: start nginx
+           service:
+            name: nginx
+            state: started
+              
