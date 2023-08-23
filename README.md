@@ -3,12 +3,12 @@
 
 ## What is Devops?
 
-Devops ia a culture. Its a process of improving the application delivery by ensuring automation, quality, continuous monitoring and continuous testing. Automate and deliver the applications on time.
+Devops is a culture. Its a process of improving the application delivery by ensuring automation, quality, continuous monitoring and continuous testing. Automate and deliver the applications on time.
 
 ## Why Devops?
 
 Before Devops, here is the process to deliver an application to the customer 
-  1. Developers work on the code and push to a central repository. After passing initial testing it will be pushed to a server.
+  1. Developers work on the code and push to a central repository. After passing initial testing, it will be pushed to a server.
   1. Sys admin will create the server to push the code. Ex: Vmware, Open stack, Xen
   1. Build or Release engineer package the application and deploy to the stage or test server
   1. Server admin creates the application server to deploy the code to production server
