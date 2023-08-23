@@ -3,7 +3,7 @@
 
 ## What is Devops?
 
-Devops ia aculture. Its a process of improving the application delivery by ensuring automation, quality, continuous monitoring and continuous testing. Automate and deliver the applciation on time.
+Devops ia a culture. Its a process of improving the application delivery by ensuring automation, quality, continuous monitoring and continuous testing. Automate and deliver the applications on time.
 
 ## Why Devops?
 
