@@ -54,4 +54,12 @@ How to write a playbook? Scenario: Install and start nginx
            service:
             name: nginx
             state: started
-              
+
+To run this playbook, use the following command
+ansible-playbook -i inventory playbook.yml
+
+Ansible roles
+ansible-galaxy role init kubernetes
+To segregate and write structured playbooks we use roles.
+Ansible playbooks are a way to send commands to remote computers in a scripted way. Instead of using Ansible commands individually to remotely configure computers from the command line, you can configure entire complex environments by passing a script to one or more systems.
+Ansible playbooks are written in the YAML data serialization format.              
