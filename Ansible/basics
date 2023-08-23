@@ -41,7 +41,7 @@ To run a command only on dbservers
     ansible -i inventory dbservers -m "shell" -a "df"
 
 How to write a playbook? Scenario: Install and start nginx
-    ---   #start with ---to indiacate yaml file 
+    ---   #Every playbook starts with "- - -"
     - name: Install and Start nginx    # - is used for list
       hosts: all
       become: root
