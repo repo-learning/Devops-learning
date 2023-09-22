@@ -63,3 +63,6 @@ ansible-galaxy role init kubernetes
 To segregate and write structured playbooks we use roles.
 Ansible playbooks are a way to send commands to remote computers in a scripted way. Instead of using Ansible commands individually to remotely configure computers from the command line, you can configure entire complex environments by passing a script to one or more systems.
 Ansible playbooks are written in the YAML data serialization format.              
+
+By using modules, instead of command - it first checks the desired state. If already in desired state, no update will be done. All this can be acheived by using modules. Using command, it doesn't check if the desired updates are already done or not.
+Its like Terraform state file, where if state is matching it wont do anything.
