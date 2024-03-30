@@ -58,3 +58,4 @@ For Ex: sshd service script is in /usr/lib/systemd/system/sshd.service file
 top - to see processes running and cpu, memory usage
 dig www.google.com
 nslookup www.google.com
+ulimit -a --> default limit 2000 can be changed to umlimited in /etc/security/limits
